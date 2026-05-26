@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0046)file:///C:/Users/IX540W/Downloads/arshjul.html -->
+<!-- saved from url=(0048)file:///C:/Users/IX540W/Downloads/arshjul_1.html -->
 <html lang="sv"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,70 +15,58 @@
     --text: #1A1917;
     --muted: #8A8780;
     --radius: 14px;
-    /* Kvartalsfärger */
-    --q1: #2878D6;   /* Q1 – blå */
-    --q1l: #DEEAF9;
-    --q2: #1A9E76;   /* Q2 – grön */
-    --q2l: #D6F2EA;
-    --q3: #D4820A;   /* Q3 – gyllengul */
-    --q3l: #FDF0D6;
-    --q4: #9B3DC8;   /* Q4 – lila */
-    --q4l: #F2E4FA;
+    --q1: #2878D6; --q1l: #DEEAF9;
+    --q2: #1A9E76; --q2l: #D6F2EA;
+    --q3: #D4820A; --q3l: #FDF0D6;
+    --q4: #9B3DC8; --q4l: #F2E4FA;
   }
   body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 2rem; }
-
-  h1 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.3px; margin-bottom: 4px; color: var(--text); }
-  .subtitle { font-size: 12px; color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.02em; }
-
-  .save-indicator { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); margin-left: 12px; vertical-align: middle; font-family: 'Space Grotesk', sans-serif; }
-  .save-dot { width: 6px; height: 6px; border-radius: 50%; background: #2EC49A; }
-
-  .layout { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; align-items: start; }
-
+  h1 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.3px; margin-bottom: 4px; }
+  .subtitle { font-size: 12px; color: var(--muted); margin-bottom: 2rem; }
+  .save-indicator { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); margin-left: 12px; vertical-align: middle; }
+  .save-dot { width: 6px; height: 6px; border-radius: 50%; background: #1A9E76; }
+  .layout { display: grid; grid-template-columns: 1fr 340px; gap: 1.5rem; align-items: start; }
   .wheel-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; display: flex; flex-direction: column; align-items: center; }
   svg#wheel { width: 100%; max-width: 460px; height: auto; }
-
   .month-detail { margin-top: 1.5rem; width: 100%; max-width: 460px; min-height: 70px; }
   .month-detail-title { font-size: 10px; font-weight: 600; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
-  .event-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip { font-size: 11px; padding: 4px 11px; border-radius: 999px; font-weight: 500; border: 1px solid transparent; }
+  .event-chips { display: flex; flex-direction: column; gap: 6px; }
+  .chip { font-size: 12px; padding: 6px 12px; border-radius: 8px; font-weight: 500; border: 1px solid transparent; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .chip-left { display: flex; flex-direction: column; gap: 2px; }
+  .chip-date { font-size: 10px; opacity: 0.7; font-weight: 400; }
+  .chip-remove { cursor: pointer; opacity: 0.5; font-size: 14px; flex-shrink: 0; }
+  .chip-remove:hover { opacity: 1; }
   .no-events { font-size: 12px; color: var(--muted); font-style: italic; }
-
   .side-panel { display: flex; flex-direction: column; gap: 1rem; }
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
   .card-title { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1rem; }
-
-  select, input[type="text"] {
+  select, input[type="text"], input[type="date"] {
     width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px;
     font-family: inherit; font-size: 12px; background: var(--surface2); color: var(--text);
     margin-bottom: 8px; outline: none; transition: border-color .15s;
   }
   select:focus, input:focus { border-color: #2878D6; }
   select option { background: #fff; }
-
   button { font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer; border-radius: 8px; transition: all .15s; border: 1px solid var(--border); }
-  .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); padding: 8px 16px; width: 100%; }
+  .btn-primary { background: var(--text); color: #fff; border-color: var(--text); padding: 8px 16px; width: 100%; }
   .btn-primary:hover { background: #333; }
-  .btn-ghost { background: transparent; color: var(--muted); border-color: var(--border); padding: 8px 16px; width: 100%; }
+  .btn-ghost { background: transparent; color: var(--muted); border-color: var(--border); padding: 8px 16px; width: 100%; margin-top: 6px; }
   .btn-ghost:hover { background: var(--surface2); color: var(--text); }
   .btn-sm { background: transparent; color: var(--muted); padding: 3px 8px; font-size: 11px; border-color: transparent; }
   .btn-sm:hover { background: var(--surface2); color: var(--text); }
-
-  .event-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; border-radius: 6px; margin-bottom: 4px; border-left: 3px solid transparent; font-size: 12px; }
-  .legend { display: flex; flex-direction: column; gap: 8px; }
-  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text); }
+  .event-row { display: flex; align-items: flex-start; justify-content: space-between; padding: 7px 8px; border-radius: 6px; margin-bottom: 4px; border-left: 3px solid transparent; font-size: 12px; gap: 6px; }
+  .event-row-text { display: flex; flex-direction: column; gap: 2px; }
+  .event-row-date { font-size: 10px; opacity: 0.65; }
+  .legend { display: flex; flex-direction: column; gap: 6px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; }
   .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
-
   .tab-bar { display: flex; gap: 4px; margin-bottom: 1rem; }
   .tab { flex: 1; text-align: center; padding: 6px; font-size: 11px; font-weight: 500; border-radius: 6px; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--muted); }
-  .tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+  .tab.active { background: var(--text); color: #fff; border-color: var(--text); }
   .panel { display: none; } .panel.active { display: block; }
-
-  .q-badge { display: inline-block; font-size: 9px; font-weight: 600; padding: 2px 6px; border-radius: 4px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
-
-  .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--surface); color: var(--text); border: 1px solid var(--border); padding: 10px 20px; border-radius: 999px; font-size: 12px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+  .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #1A1917; color: #fff; padding: 10px 20px; border-radius: 999px; font-size: 12px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
   .toast.show { opacity: 1; }
-
+  .month-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin: 10px 0 4px; padding: 3px 8px; border-radius: 5px; display: inline-block; }
   @media (max-width: 780px) { .layout { grid-template-columns: 1fr; } body { padding: 1rem; } }
 </style>
 </head>
@@ -89,13 +77,7 @@
 
 <div class="layout">
   <div class="wheel-panel">
-    <svg id="wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><defs>
-    <radialgradient id="centerGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#1E1E26"></stop>
-      <stop offset="100%" stop-color="#17171C"></stop>
-    </radialgradient>
-    <filter id="glow"><fegaussianblur stdDeviation="3" result="blur"></fegaussianblur><femerge><femergenode in="blur"></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter>
-  </defs><path d="M251.00179406849028,168.00611968784295 L252.80991019210688,20.017164978096048 A230,230 0 0,1 362.55796390223463,49.424067340612254 L290.1293610434054,178.49031966056612 A82,82 0 0,0 251.00179406849028,168.00611968784295 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="306.42255183234954" y="39.428169868983105" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="600" fill="#2878D6" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q1</text><text x="291.4110472164033" y="95.45186779374907" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jan</text><path d="M291.8645192687517,179.49211372905637 L367.4248711196693,52.23397753271911 A230,230 0 0,1 447.7660224672809,132.57512888033068 L320.50788627094363,208.13548073124832 A82,82 0 0,0 291.8645192687517,179.49211372905637 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="363.1370849898476" y="136.8629150101524" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Feb</text><path d="M321.5096803394339,209.8706389565946 L450.5759326593877,137.44203609776537 A230,230 0 0,1 479.98283502190395,247.19008980789314 L331.99388031215705,248.99820593150972 A82,82 0 0,0 321.5096803394339,209.8706389565946 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="404.5481322062509" y="208.58895278359668" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Mar</text><path d="M331.99388031215705,251.00179406849028 L479.98283502190395,252.80991019210686 A230,230 0 0,1 450.5759326593877,362.55796390223463 L321.5096803394339,290.12936104340537 A82,82 0 0,0 331.99388031215705,251.00179406849028 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="460.5718301310169" y="306.42255183234954" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="600" fill="#1A9E76" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q2</text><text x="404.5481322062509" y="291.4110472164033" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Apr</text><path d="M320.50788627094363,291.8645192687517 L447.7660224672809,367.4248711196693 A230,230 0 0,1 367.42487111966926,447.7660224672809 L291.8645192687517,320.50788627094363 A82,82 0 0,0 320.50788627094363,291.8645192687517 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="363.1370849898476" y="363.1370849898476" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Maj</text><path d="M290.1293610434054,321.5096803394339 L362.5579639022347,450.5759326593877 A230,230 0 0,1 252.8099101921068,479.98283502190395 L251.00179406849026,331.99388031215705 A82,82 0 0,0 290.1293610434054,321.5096803394339 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="291.4110472164033" y="404.5481322062509" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jun</text><path d="M248.99820593150974,331.99388031215705 L247.19008980789317,479.98283502190395 A230,230 0 0,1 137.44203609776537,450.5759326593877 L209.8706389565946,321.5096803394339 A82,82 0 0,0 248.99820593150974,331.99388031215705 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="193.57744816765046" y="460.5718301310169" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="600" fill="#D4820A" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q3</text><text x="208.58895278359665" y="404.5481322062509" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jul</text><path d="M208.13548073124838,320.50788627094363 L132.5751288803308,447.76602246728095 A230,230 0 0,1 52.23397753271911,367.4248711196693 L179.49211372905637,291.8645192687517 A82,82 0 0,0 208.13548073124838,320.50788627094363 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="136.8629150101524" y="363.1370849898476" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Aug</text><path d="M178.49031966056612,290.1293610434054 L49.42406734061228,362.5579639022347 A230,230 0 0,1 20.017164978096048,252.8099101921069 L168.00611968784295,251.00179406849028 A82,82 0 0,0 178.49031966056612,290.1293610434054 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="95.4518677937491" y="291.41104721640335" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Sep</text><path d="M168.00611968784295,248.99820593150977 L20.017164978096048,247.19008980789326 A230,230 0 0,1 49.424067340612254,137.44203609776537 L178.49031966056612,209.8706389565946 A82,82 0 0,0 168.00611968784295,248.99820593150977 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="39.428169868983076" y="193.57744816765057" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="600" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q4</text><text x="95.45186779374905" y="208.58895278359674" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Okt</text><path d="M179.49211372905637,208.13548073124838 L52.23397753271905,132.5751288803308 A230,230 0 0,1 132.57512888033074,52.23397753271908 L208.13548073124835,179.49211372905637 A82,82 0 0,0 179.49211372905637,208.13548073124838 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="136.86291501015236" y="136.8629150101524" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Nov</text><path d="M209.87063895659458,178.49031966056612 L137.4420360977653,49.42406734061231 A230,230 0 0,1 247.1900898078931,20.017164978096048 L248.99820593150972,168.00611968784295 A82,82 0 0,0 209.87063895659458,178.49031966056612 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="208.5889527835967" y="95.45186779374907" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Dec</text><circle cx="250" cy="250" r="80" fill="#FFFFFF" stroke="#E0DDD6" stroke-width="1"></circle><text x="250" y="242" text-anchor="middle" dominant-baseline="middle" font-size="22" font-weight="300" fill="#1A1917" font-family="Playfair Display,serif">2026</text><text x="250" y="262" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#B0ADA8" font-family="Space Grotesk,sans-serif" letter-spacing="0.12em">ÅRSHJUL</text></svg>
+    <svg id="wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><path d="M251.00179406849028,168.00611968784295 L252.80991019210688,20.017164978096048 A230,230 0 0,1 362.55796390223463,49.424067340612254 L290.1293610434054,178.49031966056612 A82,82 0 0,0 251.00179406849028,168.00611968784295 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="306.42255183234954" y="39.428169868983105" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="700" fill="#2878D6" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q1</text><text x="291.4110472164033" y="95.45186779374907" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jan</text><path d="M291.8645192687517,179.49211372905637 L367.4248711196693,52.23397753271911 A230,230 0 0,1 447.7660224672809,132.57512888033068 L320.50788627094363,208.13548073124832 A82,82 0 0,0 291.8645192687517,179.49211372905637 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="363.1370849898476" y="136.8629150101524" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Feb</text><path d="M321.5096803394339,209.8706389565946 L450.5759326593877,137.44203609776537 A230,230 0 0,1 479.98283502190395,247.19008980789314 L331.99388031215705,248.99820593150972 A82,82 0 0,0 321.5096803394339,209.8706389565946 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="404.5481322062509" y="208.58895278359668" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Mar</text><path d="M331.99388031215705,251.00179406849028 L479.98283502190395,252.80991019210686 A230,230 0 0,1 450.5759326593877,362.55796390223463 L321.5096803394339,290.12936104340537 A82,82 0 0,0 331.99388031215705,251.00179406849028 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="460.5718301310169" y="306.42255183234954" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="700" fill="#1A9E76" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q2</text><text x="404.5481322062509" y="291.4110472164033" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Apr</text><path d="M320.50788627094363,291.8645192687517 L447.7660224672809,367.4248711196693 A230,230 0 0,1 367.42487111966926,447.7660224672809 L291.8645192687517,320.50788627094363 A82,82 0 0,0 320.50788627094363,291.8645192687517 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="363.1370849898476" y="363.1370849898476" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Maj</text><path d="M290.1293610434054,321.5096803394339 L362.5579639022347,450.5759326593877 A230,230 0 0,1 252.8099101921068,479.98283502190395 L251.00179406849026,331.99388031215705 A82,82 0 0,0 290.1293610434054,321.5096803394339 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="291.4110472164033" y="404.5481322062509" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jun</text><path d="M248.99820593150974,331.99388031215705 L247.19008980789317,479.98283502190395 A230,230 0 0,1 137.44203609776537,450.5759326593877 L209.8706389565946,321.5096803394339 A82,82 0 0,0 248.99820593150974,331.99388031215705 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="193.57744816765046" y="460.5718301310169" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="700" fill="#D4820A" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q3</text><text x="208.58895278359665" y="404.5481322062509" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jul</text><path d="M208.13548073124838,320.50788627094363 L132.5751288803308,447.76602246728095 A230,230 0 0,1 52.23397753271911,367.4248711196693 L179.49211372905637,291.8645192687517 A82,82 0 0,0 208.13548073124838,320.50788627094363 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="136.8629150101524" y="363.1370849898476" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Aug</text><path d="M178.49031966056612,290.1293610434054 L49.42406734061228,362.5579639022347 A230,230 0 0,1 20.017164978096048,252.8099101921069 L168.00611968784295,251.00179406849028 A82,82 0 0,0 178.49031966056612,290.1293610434054 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="95.4518677937491" y="291.41104721640335" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Sep</text><path d="M168.00611968784295,248.99820593150977 L20.017164978096048,247.19008980789326 A230,230 0 0,1 49.424067340612254,137.44203609776537 L178.49031966056612,209.8706389565946 A82,82 0 0,0 168.00611968784295,248.99820593150977 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="39.428169868983076" y="193.57744816765057" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="700" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q4</text><text x="95.45186779374905" y="208.58895278359674" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Okt</text><path d="M179.49211372905637,208.13548073124838 L52.23397753271905,132.5751288803308 A230,230 0 0,1 132.57512888033074,52.23397753271908 L208.13548073124835,179.49211372905637 A82,82 0 0,0 179.49211372905637,208.13548073124838 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="136.86291501015236" y="136.8629150101524" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Nov</text><path d="M209.87063895659458,178.49031966056612 L137.4420360977653,49.42406734061231 A230,230 0 0,1 247.1900898078931,20.017164978096048 L248.99820593150972,168.00611968784295 A82,82 0 0,0 209.87063895659458,178.49031966056612 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="208.5889527835967" y="95.45186779374907" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Dec</text><circle cx="250" cy="250" r="80" fill="#FFFFFF" stroke="#E0DDD6" stroke-width="1"></circle><text x="250" y="242" text-anchor="middle" dominant-baseline="middle" font-size="22" font-weight="300" fill="#1A1917" font-family="Playfair Display,serif">2026</text><text x="250" y="262" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#B0ADA8" font-family="Space Grotesk,sans-serif" letter-spacing="0.12em">ÅRSHJUL</text></svg>
     <div class="month-detail">
       <div class="month-detail-title" id="detail-title">Välj en månad</div>
       <div class="event-chips" id="detail-chips">
@@ -134,6 +116,7 @@
           <option value="9">SWOT</option>
           <option value="10">Verksamhetsplan</option>
         </select>
+        <input type="date" id="inp-date">
         <input type="text" id="inp-note" placeholder="Anteckning (valfri)" onkeydown="if(event.key===&#39;Enter&#39;)addEvent()">
         <button class="btn-primary" onclick="addEvent()">+ Lägg till</button>
       </div>
@@ -145,19 +128,14 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Kvartal</div>
-      <div class="legend">
-        <div class="legend-item"><span class="legend-dot" style="background:#3D8EF0"></span>Q1 – Januari, Februari, Mars</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#2EC49A"></span>Q2 – April, Maj, Juni</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#F0A033"></span>Q3 – Juli, Augusti, September</div>
-        <div class="legend-item"><span class="legend-dot" style="background:#C45BE0"></span>Q4 – Oktober, November, December</div>
-      </div>
+      <div class="card-title">Kategorier</div>
+      <div class="legend" id="legend"><div class="legend-item"><span class="legend-dot" style="background:#C0392B"></span>Ledningsmöte</div><div class="legend-item"><span class="legend-dot" style="background:#1A6EA8"></span>Ledningens genomgång</div><div class="legend-item"><span class="legend-dot" style="background:#16A085"></span>SJG Sessions</div><div class="legend-item"><span class="legend-dot" style="background:#7D3C98"></span>Uppföljning VPL</div><div class="legend-item"><span class="legend-dot" style="background:#D35400"></span>Business review</div><div class="legend-item"><span class="legend-dot" style="background:#1E8449"></span>Strategidagar</div><div class="legend-item"><span class="legend-dot" style="background:#2E4053"></span>TÅG2027</div><div class="legend-item"><span class="legend-dot" style="background:#B7950B"></span>ISO-revision</div><div class="legend-item"><span class="legend-dot" style="background:#117A65"></span>Budget</div><div class="legend-item"><span class="legend-dot" style="background:#884EA0"></span>SWOT</div><div class="legend-item"><span class="legend-dot" style="background:#1F618D"></span>Verksamhetsplan</div></div>
     </div>
 
     <div class="card">
       <div class="card-title">⚠ Byt dator? Säkerhetskopiera</div>
       <p style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.6">Data sparas automatiskt i denna webbläsare. Byter du dator – exportera och importera nedan.</p>
-      <button class="btn-primary" onclick="exportBackup()" style="margin-bottom:8px">Exportera säkerhetskopia</button>
+      <button class="btn-primary" onclick="exportBackup()">Exportera säkerhetskopia</button>
       <input type="file" id="import-file" accept=".json" style="display:none" onchange="importBackup(this)">
       <button class="btn-ghost" onclick="document.getElementById(&#39;import-file&#39;).click()">Importera säkerhetskopia</button>
     </div>
@@ -171,25 +149,27 @@ const MONTHS = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti
 const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
 const CATS = ['Ledningsmöte','Ledningens genomgång','SJG Sessions','Uppföljning VPL','Business review','Strategidagar','TÅG2027','ISO-revision','Budget','SWOT','Verksamhetsplan'];
 
-// Kvartalsfärger per månad (0-11)
+// Kvartalsfärger per månad
 const Q_COLORS = [
-  {bg:'#2878D6', light:'#DEEAF9', q:'Q1'},  // Jan
-  {bg:'#2878D6', light:'#DEEAF9', q:'Q1'},  // Feb
-  {bg:'#2878D6', light:'#DEEAF9', q:'Q1'},  // Mar
-  {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'},  // Apr
-  {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'},  // Maj
-  {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'},  // Jun
-  {bg:'#D4820A', light:'#FDF0D6', q:'Q3'},  // Jul
-  {bg:'#D4820A', light:'#FDF0D6', q:'Q3'},  // Aug
-  {bg:'#D4820A', light:'#FDF0D6', q:'Q3'},  // Sep
-  {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'},  // Okt
-  {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'},  // Nov
-  {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'},  // Dec
+  {bg:'#2878D6', light:'#DEEAF9', q:'Q1'}, {bg:'#2878D6', light:'#DEEAF9', q:'Q1'}, {bg:'#2878D6', light:'#DEEAF9', q:'Q1'},
+  {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'}, {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'}, {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'},
+  {bg:'#D4820A', light:'#FDF0D6', q:'Q3'}, {bg:'#D4820A', light:'#FDF0D6', q:'Q3'}, {bg:'#D4820A', light:'#FDF0D6', q:'Q3'},
+  {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'}, {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'}, {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'},
 ];
 
+// Egna färger per kategori
 const CAT_COLORS = [
-  '#3D8EF0','#2EC49A','#F0A033','#C45BE0','#F06B6B',
-  '#50D0E0','#E8D44D','#80E08A','#F09060','#A090F0','#60C0A0'
+  {bg:'#C0392B', light:'#FDECEA'}, // Ledningsmöte – röd
+  {bg:'#1A6EA8', light:'#DDEEF9'}, // Ledningens genomgång – blå
+  {bg:'#16A085', light:'#D5F2EC'}, // SJG Sessions – grönblå
+  {bg:'#7D3C98', light:'#F0E6F9'}, // Uppföljning VPL – lila
+  {bg:'#D35400', light:'#FDEBD0'}, // Business review – orange
+  {bg:'#1E8449', light:'#D5F5E3'}, // Strategidagar – grön
+  {bg:'#2E4053', light:'#D6DBDF'}, // TÅG2027 – mörkgrå
+  {bg:'#B7950B', light:'#FEF9E7'}, // ISO-revision – gul
+  {bg:'#117A65', light:'#D1F2EB'}, // Budget – mörkgrön
+  {bg:'#884EA0', light:'#F5EEF8'}, // SWOT – lila-rosa
+  {bg:'#1F618D', light:'#D6EAF8'}, // Verksamhetsplan – mörkblå
 ];
 
 const STORAGE_KEY = 'arshjul_ledning_v1';
@@ -199,7 +179,7 @@ let selectedMonth = null;
 function loadFromStorage() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) { const p = JSON.parse(saved); if (Array.isArray(p) && p.length===12) { events = p; } }
+    if (saved) { const p = JSON.parse(saved); if (Array.isArray(p) && p.length===12) events = p; }
   } catch(e) {}
 }
 
@@ -216,6 +196,21 @@ function showToast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function formatDate(dateStr) {
+  if (!dateStr) return '';
+  const [y,m,d] = dateStr.split('-');
+  return `${d}/${m}/${y}`;
+}
+
+function sortEvents(evts) {
+  return [...evts].sort((a,b) => {
+    if (!a.date && !b.date) return 0;
+    if (!a.date) return 1;
+    if (!b.date) return -1;
+    return a.date.localeCompare(b.date);
+  });
 }
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
@@ -238,26 +233,12 @@ function buildWheel() {
   const svg = document.getElementById('wheel');
   svg.innerHTML = '';
 
-  // Subtle glow rings
-  const defs = document.createElementNS(SVG_NS, 'defs');
-  defs.innerHTML = `
-    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#1E1E26"/>
-      <stop offset="100%" stop-color="#17171C"/>
-    </radialGradient>
-    <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-  `;
-  svg.appendChild(defs);
-
   for (let i=0; i<12; i++) {
     const mid = i*30+15;
     const isSelected = selectedMonth===i;
     const hasEvents = events[i].length>0;
     const qc = Q_COLORS[i];
-
-    const baseFill = qc.light;
-    const selectedFill = qc.bg;
-    const fill = isSelected ? selectedFill : baseFill;
+    const fill = isSelected ? qc.bg : qc.light;
     const textFill = isSelected ? '#FFFFFF' : qc.bg;
 
     const path = document.createElementNS(SVG_NS, 'path');
@@ -267,22 +248,20 @@ function buildWheel() {
     path.setAttribute('stroke-width', '2');
     path.style.cursor = 'pointer';
     path.style.transition = 'fill .2s';
-    path.addEventListener('mouseenter', () => { if (!isSelected) path.setAttribute('fill', qc.light); });
+    path.addEventListener('mouseenter', () => { if (!isSelected) path.setAttribute('fill', qc.bg+'33'); });
     path.addEventListener('mouseleave', () => { if (!isSelected) path.setAttribute('fill', fill); });
     path.addEventListener('click', () => selectMonth(i));
     svg.appendChild(path);
 
-    // Quarter label on first month of each quarter
+    // Q label on first month of each quarter
     if (i % 3 === 0) {
-      const qMid = (i*30 + 30 + 15) - 30 + 15; // center of first month
-      const [qx, qy] = polarXY(i*30+15, OR-12);
+      const [qx,qy] = polarXY(i*30+15, OR-12);
       const qLabel = document.createElementNS(SVG_NS, 'text');
-      qLabel.setAttribute('x', qx); qLabel.setAttribute('y', qy);
+      qLabel.setAttribute('x',qx); qLabel.setAttribute('y',qy);
       qLabel.setAttribute('text-anchor','middle'); qLabel.setAttribute('dominant-baseline','middle');
-      qLabel.setAttribute('font-size','8'); qLabel.setAttribute('font-weight','600');
+      qLabel.setAttribute('font-size','8'); qLabel.setAttribute('font-weight','700');
       qLabel.setAttribute('fill', qc.bg); qLabel.setAttribute('font-family','Space Grotesk,sans-serif');
-      qLabel.setAttribute('letter-spacing','0.06em');
-      qLabel.setAttribute('pointer-events','none');
+      qLabel.setAttribute('letter-spacing','0.06em'); qLabel.setAttribute('pointer-events','none');
       qLabel.textContent = qc.q;
       svg.appendChild(qLabel);
     }
@@ -300,25 +279,23 @@ function buildWheel() {
 
     if (hasEvents) {
       const count = events[i].length;
-      const [dotCx, dotCy] = polarXY(mid, OR-22);
+      const [dotCx,dotCy] = polarXY(mid, OR-22);
       const dot = document.createElementNS(SVG_NS, 'circle');
-      dot.setAttribute('cx', dotCx); dot.setAttribute('cy', dotCy); dot.setAttribute('r', 8);
-      dot.setAttribute('fill', isSelected ? 'rgba(255,255,255,0.5)' : qc.bg);
+      dot.setAttribute('cx',dotCx); dot.setAttribute('cy',dotCy); dot.setAttribute('r',9);
+      dot.setAttribute('fill', isSelected ? 'rgba(255,255,255,0.4)' : qc.bg);
       dot.setAttribute('pointer-events','none');
       svg.appendChild(dot);
       const num = document.createElementNS(SVG_NS, 'text');
-      num.setAttribute('x', dotCx); num.setAttribute('y', dotCy);
+      num.setAttribute('x',dotCx); num.setAttribute('y',dotCy);
       num.setAttribute('text-anchor','middle'); num.setAttribute('dominant-baseline','middle');
       num.setAttribute('font-size','9'); num.setAttribute('font-weight','600');
       num.setAttribute('fill', isSelected ? qc.bg : '#fff');
-      num.setAttribute('font-family','Space Grotesk,sans-serif');
-      num.setAttribute('pointer-events','none');
+      num.setAttribute('font-family','Space Grotesk,sans-serif'); num.setAttribute('pointer-events','none');
       num.textContent = count;
       svg.appendChild(num);
     }
   }
 
-  // Center
   const centerBg = document.createElementNS(SVG_NS, 'circle');
   centerBg.setAttribute('cx',CX); centerBg.setAttribute('cy',CY); centerBg.setAttribute('r',IR-2);
   centerBg.setAttribute('fill','#FFFFFF'); centerBg.setAttribute('stroke','#E0DDD6'); centerBg.setAttribute('stroke-width','1');
@@ -357,24 +334,34 @@ function updateDetail() {
   }
   const qc = Q_COLORS[selectedMonth];
   title.textContent = `${MONTHS[selectedMonth]} · ${qc.q}`;
-  const evts = events[selectedMonth];
+  const evts = sortEvents(events[selectedMonth]);
   if (evts.length===0) {
     chips.innerHTML = '<span class="no-events">Inga aktiviteter ännu. Lägg till via panelen.</span>';
     return;
   }
-  chips.innerHTML = evts.map((e,idx) => {
+  chips.innerHTML = evts.map((e, idx) => {
     const cc = CAT_COLORS[e.cat];
-    return `<span class="chip" style="background:${qc.light};color:${qc.bg};border-color:${qc.bg}33">${CATS[e.cat]}${e.note?' – '+e.note:''} <span style="cursor:pointer;margin-left:4px;opacity:.6" onclick="removeEvent(${selectedMonth},${idx})">×</span></span>`;
+    const realIdx = events[selectedMonth].findIndex((ev,i) => ev === events[selectedMonth].filter(x=>x===ev)[0] && JSON.stringify(ev)===JSON.stringify(e) && i >= 0);
+    const removeIdx = events[selectedMonth].indexOf(e);
+    return `<div class="chip" style="background:${cc.light};color:${cc.bg};border-color:${cc.bg}33">
+      <div class="chip-left">
+        <span>${CATS[e.cat]}${e.note ? ' – '+e.note : ''}</span>
+        ${e.date ? `<span class="chip-date">${formatDate(e.date)}</span>` : ''}
+      </div>
+      <span class="chip-remove" onclick="removeEvent(${selectedMonth},${removeIdx})">×</span>
+    </div>`;
   }).join('');
 }
 
 function addEvent() {
   const m = document.getElementById('sel-month').value;
   const c = document.getElementById('sel-cat').value;
+  const date = document.getElementById('inp-date').value;
   const note = document.getElementById('inp-note').value.trim();
   if (m===''||c==='') { showToast('Välj månad och kategori'); return; }
-  events[parseInt(m)].push({cat:parseInt(c), note});
+  events[parseInt(m)].push({cat:parseInt(c), date, note});
   document.getElementById('inp-note').value='';
+  document.getElementById('inp-date').value='';
   selectedMonth = parseInt(m);
   saveToStorage(); buildWheel(); updateDetail(); updateAllList();
   showToast('Aktivitet tillagd ✓');
@@ -395,18 +382,22 @@ function updateAllList() {
     let qHtml = '';
     for (let m=q*3; m<q*3+3; m++) {
       if (events[m].length===0) continue;
-      qHtml += `<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:${qc.bg};margin:8px 0 4px">${MONTHS[m]}</div>`;
-      events[m].forEach((e,idx) => {
-        qHtml += `<div class="event-row" style="border-left-color:${qc.bg};background:${qc.light}">
-          <span style="font-size:11px;color:${qc.bg};font-weight:500">${CATS[e.cat]}${e.note?'<span style="font-weight:400;opacity:.6"> – '+e.note+'</span>':''}</span>
-          <button class="btn-sm" onclick="removeEvent(${m},${idx})">×</button>
+      const sorted = sortEvents(events[m]);
+      qHtml += `<div class="month-header" style="color:${qc.bg};background:${qc.light}">${MONTHS[m]}</div>`;
+      sorted.forEach(e => {
+        const origIdx = events[m].indexOf(e);
+        const cc = CAT_COLORS[e.cat];
+        qHtml += `<div class="event-row" style="border-left-color:${cc.bg};background:${cc.light}">
+          <div class="event-row-text">
+            <span style="color:${cc.bg};font-weight:500">${CATS[e.cat]}${e.note?` <span style="font-weight:400;opacity:.7">– ${e.note}</span>`:''}</span>
+            ${e.date?`<span class="event-row-date" style="color:${cc.bg}">${formatDate(e.date)}</span>`:''}
+          </div>
+          <button class="btn-sm" onclick="removeEvent(${m},${origIdx})">×</button>
         </div>`;
         any = true;
       });
     }
-    if (qHtml) {
-      html += `<div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:${qc.bg};margin-bottom:4px;padding:4px 8px;background:${qc.light};border-radius:6px">${qs[q]}</div>${qHtml}`;
-    }
+    if (qHtml) html += `<div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:${qc.bg};margin-bottom:6px;margin-top:${q>0?'12px':'0'}">${qs[q]}</div>${qHtml}`;
   }
   el.innerHTML = any ? html : '<p class="no-events">Inga aktiviteter tillagda än.</p>';
 }
@@ -442,7 +433,13 @@ function switchTab(tab, btn) {
   btn.classList.add('active');
 }
 
-loadFromStorage(); buildWheel(); updateAllList();
+function buildLegend() {
+  document.getElementById('legend').innerHTML = CATS.map((cat,i) =>
+    `<div class="legend-item"><span class="legend-dot" style="background:${CAT_COLORS[i].bg}"></span>${cat}</div>`
+  ).join('');
+}
+
+loadFromStorage(); buildWheel(); buildLegend(); updateAllList();
 </script>
 
 
