@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0048)file:///C:/Users/IX540W/Downloads/arshjul_1.html -->
+<!-- saved from url=(0048)file:///C:/Users/IX540W/Downloads/arshjul_2.html -->
 <html lang="sv"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,17 +8,10 @@
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #F4F3EF;
-    --surface: #FFFFFF;
-    --surface2: #F4F3EF;
-    --border: #E0DDD6;
-    --text: #1A1917;
-    --muted: #8A8780;
-    --radius: 14px;
-    --q1: #2878D6; --q1l: #DEEAF9;
-    --q2: #1A9E76; --q2l: #D6F2EA;
-    --q3: #D4820A; --q3l: #FDF0D6;
-    --q4: #9B3DC8; --q4l: #F2E4FA;
+    --bg: #F4F3EF; --surface: #FFFFFF; --surface2: #F4F3EF;
+    --border: #E0DDD6; --text: #1A1917; --muted: #8A8780; --radius: 14px;
+    --q1: #2878D6; --q1l: #DEEAF9; --q2: #1A9E76; --q2l: #D6F2EA;
+    --q3: #D4820A; --q3l: #FDF0D6; --q4: #9B3DC8; --q4l: #F2E4FA;
   }
   body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 2rem; }
   h1 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.3px; margin-bottom: 4px; }
@@ -50,8 +43,6 @@
   button { font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer; border-radius: 8px; transition: all .15s; border: 1px solid var(--border); }
   .btn-primary { background: var(--text); color: #fff; border-color: var(--text); padding: 8px 16px; width: 100%; }
   .btn-primary:hover { background: #333; }
-  .btn-ghost { background: transparent; color: var(--muted); border-color: var(--border); padding: 8px 16px; width: 100%; margin-top: 6px; }
-  .btn-ghost:hover { background: var(--surface2); color: var(--text); }
   .btn-sm { background: transparent; color: var(--muted); padding: 3px 8px; font-size: 11px; border-color: transparent; }
   .btn-sm:hover { background: var(--surface2); color: var(--text); }
   .event-row { display: flex; align-items: flex-start; justify-content: space-between; padding: 7px 8px; border-radius: 6px; margin-bottom: 4px; border-left: 3px solid transparent; font-size: 12px; gap: 6px; }
@@ -66,13 +57,13 @@
   .panel { display: none; } .panel.active { display: block; }
   .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #1A1917; color: #fff; padding: 10px 20px; border-radius: 999px; font-size: 12px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
   .toast.show { opacity: 1; }
-  .month-header { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; margin: 10px 0 4px; padding: 3px 8px; border-radius: 5px; display: inline-block; }
+  .loading { text-align: center; padding: 2rem; color: var(--muted); font-size: 13px; }
   @media (max-width: 780px) { .layout { grid-template-columns: 1fr; } body { padding: 1rem; } }
 </style>
 </head>
 <body>
 
-<h1>Årshjul <span class="save-indicator"><span class="save-dot"></span><span id="save-status">Sparad</span></span></h1>
+<h1>Årshjul <span class="save-indicator"><span class="save-dot"></span><span id="save-status">Synkad ✓</span></span></h1>
 <p class="subtitle">Ledningsgruppen · Klicka på en månad för att se eller redigera aktiviteter</p>
 
 <div class="layout">
@@ -80,9 +71,7 @@
     <svg id="wheel" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg"><path d="M251.00179406849028,168.00611968784295 L252.80991019210688,20.017164978096048 A230,230 0 0,1 362.55796390223463,49.424067340612254 L290.1293610434054,178.49031966056612 A82,82 0 0,0 251.00179406849028,168.00611968784295 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="306.42255183234954" y="39.428169868983105" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="700" fill="#2878D6" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q1</text><text x="291.4110472164033" y="95.45186779374907" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jan</text><path d="M291.8645192687517,179.49211372905637 L367.4248711196693,52.23397753271911 A230,230 0 0,1 447.7660224672809,132.57512888033068 L320.50788627094363,208.13548073124832 A82,82 0 0,0 291.8645192687517,179.49211372905637 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="363.1370849898476" y="136.8629150101524" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Feb</text><path d="M321.5096803394339,209.8706389565946 L450.5759326593877,137.44203609776537 A230,230 0 0,1 479.98283502190395,247.19008980789314 L331.99388031215705,248.99820593150972 A82,82 0 0,0 321.5096803394339,209.8706389565946 Z" fill="#DEEAF9" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="404.5481322062509" y="208.58895278359668" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#2878D6" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Mar</text><path d="M331.99388031215705,251.00179406849028 L479.98283502190395,252.80991019210686 A230,230 0 0,1 450.5759326593877,362.55796390223463 L321.5096803394339,290.12936104340537 A82,82 0 0,0 331.99388031215705,251.00179406849028 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="460.5718301310169" y="306.42255183234954" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="700" fill="#1A9E76" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q2</text><text x="404.5481322062509" y="291.4110472164033" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Apr</text><path d="M320.50788627094363,291.8645192687517 L447.7660224672809,367.4248711196693 A230,230 0 0,1 367.42487111966926,447.7660224672809 L291.8645192687517,320.50788627094363 A82,82 0 0,0 320.50788627094363,291.8645192687517 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="363.1370849898476" y="363.1370849898476" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Maj</text><path d="M290.1293610434054,321.5096803394339 L362.5579639022347,450.5759326593877 A230,230 0 0,1 252.8099101921068,479.98283502190395 L251.00179406849026,331.99388031215705 A82,82 0 0,0 290.1293610434054,321.5096803394339 Z" fill="#D6F2EA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="291.4110472164033" y="404.5481322062509" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#1A9E76" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jun</text><path d="M248.99820593150974,331.99388031215705 L247.19008980789317,479.98283502190395 A230,230 0 0,1 137.44203609776537,450.5759326593877 L209.8706389565946,321.5096803394339 A82,82 0 0,0 248.99820593150974,331.99388031215705 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="193.57744816765046" y="460.5718301310169" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="700" fill="#D4820A" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q3</text><text x="208.58895278359665" y="404.5481322062509" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Jul</text><path d="M208.13548073124838,320.50788627094363 L132.5751288803308,447.76602246728095 A230,230 0 0,1 52.23397753271911,367.4248711196693 L179.49211372905637,291.8645192687517 A82,82 0 0,0 208.13548073124838,320.50788627094363 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="136.8629150101524" y="363.1370849898476" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Aug</text><path d="M178.49031966056612,290.1293610434054 L49.42406734061228,362.5579639022347 A230,230 0 0,1 20.017164978096048,252.8099101921069 L168.00611968784295,251.00179406849028 A82,82 0 0,0 178.49031966056612,290.1293610434054 Z" fill="#FDF0D6" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="95.4518677937491" y="291.41104721640335" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#D4820A" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Sep</text><path d="M168.00611968784295,248.99820593150977 L20.017164978096048,247.19008980789326 A230,230 0 0,1 49.424067340612254,137.44203609776537 L178.49031966056612,209.8706389565946 A82,82 0 0,0 168.00611968784295,248.99820593150977 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="39.428169868983076" y="193.57744816765057" text-anchor="middle" dominant-baseline="middle" font-size="8" font-weight="700" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" letter-spacing="0.06em" pointer-events="none">Q4</text><text x="95.45186779374905" y="208.58895278359674" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Okt</text><path d="M179.49211372905637,208.13548073124838 L52.23397753271905,132.5751288803308 A230,230 0 0,1 132.57512888033074,52.23397753271908 L208.13548073124835,179.49211372905637 A82,82 0 0,0 179.49211372905637,208.13548073124838 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="136.86291501015236" y="136.8629150101524" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Nov</text><path d="M209.87063895659458,178.49031966056612 L137.4420360977653,49.42406734061231 A230,230 0 0,1 247.1900898078931,20.017164978096048 L248.99820593150972,168.00611968784295 A82,82 0 0,0 209.87063895659458,178.49031966056612 Z" fill="#F2E4FA" stroke="#F4F3EF" stroke-width="2" style="cursor: pointer; transition: fill 0.2s;"></path><text x="208.5889527835967" y="95.45186779374907" text-anchor="middle" dominant-baseline="middle" font-size="12" font-weight="400" fill="#9B3DC8" font-family="Space Grotesk,sans-serif" style="cursor: pointer; user-select: none;">Dec</text><circle cx="250" cy="250" r="80" fill="#FFFFFF" stroke="#E0DDD6" stroke-width="1"></circle><text x="250" y="242" text-anchor="middle" dominant-baseline="middle" font-size="22" font-weight="300" fill="#1A1917" font-family="Playfair Display,serif">2026</text><text x="250" y="262" text-anchor="middle" dominant-baseline="middle" font-size="8" fill="#B0ADA8" font-family="Space Grotesk,sans-serif" letter-spacing="0.12em">ÅRSHJUL</text></svg>
     <div class="month-detail">
       <div class="month-detail-title" id="detail-title">Välj en månad</div>
-      <div class="event-chips" id="detail-chips">
-        <span class="no-events">Klicka på en månad i hjulet för att se aktiviteter.</span>
-      </div>
+      <div class="event-chips" id="detail-chips"><span class="no-events">Klicka på en månad i hjulet för att se aktiviteter.</span></div>
     </div>
   </div>
 
@@ -131,65 +120,44 @@
       <div class="card-title">Kategorier</div>
       <div class="legend" id="legend"><div class="legend-item"><span class="legend-dot" style="background:#C0392B"></span>Ledningsmöte</div><div class="legend-item"><span class="legend-dot" style="background:#1A6EA8"></span>Ledningens genomgång</div><div class="legend-item"><span class="legend-dot" style="background:#16A085"></span>SJG Sessions</div><div class="legend-item"><span class="legend-dot" style="background:#7D3C98"></span>Uppföljning VPL</div><div class="legend-item"><span class="legend-dot" style="background:#D35400"></span>Business review</div><div class="legend-item"><span class="legend-dot" style="background:#1E8449"></span>Strategidagar</div><div class="legend-item"><span class="legend-dot" style="background:#2E4053"></span>TÅG2027</div><div class="legend-item"><span class="legend-dot" style="background:#B7950B"></span>ISO-revision</div><div class="legend-item"><span class="legend-dot" style="background:#117A65"></span>Budget</div><div class="legend-item"><span class="legend-dot" style="background:#884EA0"></span>SWOT</div><div class="legend-item"><span class="legend-dot" style="background:#1F618D"></span>Verksamhetsplan</div></div>
     </div>
-
-    <div class="card">
-      <div class="card-title">⚠ Byt dator? Säkerhetskopiera</div>
-      <p style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.6">Data sparas automatiskt i denna webbläsare. Byter du dator – exportera och importera nedan.</p>
-      <button class="btn-primary" onclick="exportBackup()">Exportera säkerhetskopia</button>
-      <input type="file" id="import-file" accept=".json" style="display:none" onchange="importBackup(this)">
-      <button class="btn-ghost" onclick="document.getElementById(&#39;import-file&#39;).click()">Importera säkerhetskopia</button>
-    </div>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
+const SUPABASE_URL = 'https://vudjmklgwhodtufpmvto.supabase.co';
+const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ1ZGpta2xnd2hvZHR1ZnBtdnRvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk3OTUxMDAsImV4cCI6MjA5NTM3MTEwMH0.8521aJtEQE9QWNK_P7xpKRn2aBw1_kfARkBDQh1ylmE';
+const API = `${SUPABASE_URL}/rest/v1/activities`;
+const HEADERS = {
+  'Content-Type': 'application/json',
+  'apikey': SUPABASE_KEY,
+  'Authorization': `Bearer ${SUPABASE_KEY}`
+};
+
 const MONTHS = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
 const CATS = ['Ledningsmöte','Ledningens genomgång','SJG Sessions','Uppföljning VPL','Business review','Strategidagar','TÅG2027','ISO-revision','Budget','SWOT','Verksamhetsplan'];
 
-// Kvartalsfärger per månad
 const Q_COLORS = [
-  {bg:'#2878D6', light:'#DEEAF9', q:'Q1'}, {bg:'#2878D6', light:'#DEEAF9', q:'Q1'}, {bg:'#2878D6', light:'#DEEAF9', q:'Q1'},
-  {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'}, {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'}, {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'},
-  {bg:'#D4820A', light:'#FDF0D6', q:'Q3'}, {bg:'#D4820A', light:'#FDF0D6', q:'Q3'}, {bg:'#D4820A', light:'#FDF0D6', q:'Q3'},
-  {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'}, {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'}, {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'},
+  {bg:'#2878D6',light:'#DEEAF9',q:'Q1'},{bg:'#2878D6',light:'#DEEAF9',q:'Q1'},{bg:'#2878D6',light:'#DEEAF9',q:'Q1'},
+  {bg:'#1A9E76',light:'#D6F2EA',q:'Q2'},{bg:'#1A9E76',light:'#D6F2EA',q:'Q2'},{bg:'#1A9E76',light:'#D6F2EA',q:'Q2'},
+  {bg:'#D4820A',light:'#FDF0D6',q:'Q3'},{bg:'#D4820A',light:'#FDF0D6',q:'Q3'},{bg:'#D4820A',light:'#FDF0D6',q:'Q3'},
+  {bg:'#9B3DC8',light:'#F2E4FA',q:'Q4'},{bg:'#9B3DC8',light:'#F2E4FA',q:'Q4'},{bg:'#9B3DC8',light:'#F2E4FA',q:'Q4'},
 ];
 
-// Egna färger per kategori
 const CAT_COLORS = [
-  {bg:'#C0392B', light:'#FDECEA'}, // Ledningsmöte – röd
-  {bg:'#1A6EA8', light:'#DDEEF9'}, // Ledningens genomgång – blå
-  {bg:'#16A085', light:'#D5F2EC'}, // SJG Sessions – grönblå
-  {bg:'#7D3C98', light:'#F0E6F9'}, // Uppföljning VPL – lila
-  {bg:'#D35400', light:'#FDEBD0'}, // Business review – orange
-  {bg:'#1E8449', light:'#D5F5E3'}, // Strategidagar – grön
-  {bg:'#2E4053', light:'#D6DBDF'}, // TÅG2027 – mörkgrå
-  {bg:'#B7950B', light:'#FEF9E7'}, // ISO-revision – gul
-  {bg:'#117A65', light:'#D1F2EB'}, // Budget – mörkgrön
-  {bg:'#884EA0', light:'#F5EEF8'}, // SWOT – lila-rosa
-  {bg:'#1F618D', light:'#D6EAF8'}, // Verksamhetsplan – mörkblå
+  {bg:'#C0392B',light:'#FDECEA'},{bg:'#1A6EA8',light:'#DDEEF9'},{bg:'#16A085',light:'#D5F2EC'},
+  {bg:'#7D3C98',light:'#F0E6F9'},{bg:'#D35400',light:'#FDEBD0'},{bg:'#1E8449',light:'#D5F5E3'},
+  {bg:'#2E4053',light:'#D6DBDF'},{bg:'#B7950B',light:'#FEF9E7'},{bg:'#117A65',light:'#D1F2EB'},
+  {bg:'#884EA0',light:'#F5EEF8'},{bg:'#1F618D',light:'#D6EAF8'},
 ];
 
-const STORAGE_KEY = 'arshjul_ledning_v1';
 let events = Array.from({length:12}, () => []);
 let selectedMonth = null;
 
-function loadFromStorage() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) { const p = JSON.parse(saved); if (Array.isArray(p) && p.length===12) events = p; }
-  } catch(e) {}
-}
-
-function saveToStorage() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
-    const el = document.getElementById('save-status');
-    el.textContent = 'Sparar...';
-    setTimeout(() => el.textContent = 'Sparad ✓', 600);
-  } catch(e) {}
+function setStatus(msg) {
+  document.getElementById('save-status').textContent = msg;
 }
 
 function showToast(msg) {
@@ -213,6 +181,63 @@ function sortEvents(evts) {
   });
 }
 
+async function loadEvents() {
+  try {
+    setStatus('Laddar...');
+    const res = await fetch(`${API}?order=date.asc`, {headers: HEADERS});
+    if (!res.ok) throw new Error('Kunde inte hämta data');
+    const data = await res.json();
+    events = Array.from({length:12}, () => []);
+    data.forEach(row => {
+      if (row.month >= 0 && row.month < 12) events[row.month].push(row);
+    });
+    setStatus('Synkad ✓');
+    buildWheel(); updateDetail(); updateAllList();
+  } catch(e) {
+    setStatus('Anslutningsfel');
+    showToast('Kunde inte ansluta till databasen');
+  }
+}
+
+async function addEvent() {
+  const m = document.getElementById('sel-month').value;
+  const c = document.getElementById('sel-cat').value;
+  const date = document.getElementById('inp-date').value;
+  const note = document.getElementById('inp-note').value.trim();
+  if (m===''||c==='') { showToast('Välj månad och kategori'); return; }
+  try {
+    setStatus('Sparar...');
+    const res = await fetch(API, {
+      method: 'POST',
+      headers: {...HEADERS, 'Prefer': 'return=representation'},
+      body: JSON.stringify({month: parseInt(m), cat: parseInt(c), date: date||null, note: note||null})
+    });
+    if (!res.ok) throw new Error();
+    document.getElementById('inp-note').value = '';
+    document.getElementById('inp-date').value = '';
+    selectedMonth = parseInt(m);
+    await loadEvents();
+    showToast('Aktivitet tillagd ✓');
+  } catch(e) {
+    setStatus('Fel vid sparning');
+    showToast('Kunde inte spara aktiviteten');
+  }
+}
+
+async function removeEvent(id, month) {
+  try {
+    setStatus('Tar bort...');
+    const res = await fetch(`${API}?id=eq.${id}`, {method: 'DELETE', headers: HEADERS});
+    if (!res.ok) throw new Error();
+    selectedMonth = month;
+    await loadEvents();
+    showToast('Aktivitet borttagen');
+  } catch(e) {
+    setStatus('Fel');
+    showToast('Kunde inte ta bort aktiviteten');
+  }
+}
+
 const SVG_NS = 'http://www.w3.org/2000/svg';
 const CX=250, CY=250, OR=230, IR=82, MR=160;
 
@@ -232,7 +257,6 @@ function slicePath(i) {
 function buildWheel() {
   const svg = document.getElementById('wheel');
   svg.innerHTML = '';
-
   for (let i=0; i<12; i++) {
     const mid = i*30+15;
     const isSelected = selectedMonth===i;
@@ -248,12 +272,11 @@ function buildWheel() {
     path.setAttribute('stroke-width', '2');
     path.style.cursor = 'pointer';
     path.style.transition = 'fill .2s';
-    path.addEventListener('mouseenter', () => { if (!isSelected) path.setAttribute('fill', qc.bg+'33'); });
+    path.addEventListener('mouseenter', () => { if (!isSelected) path.setAttribute('fill', qc.bg+'55'); });
     path.addEventListener('mouseleave', () => { if (!isSelected) path.setAttribute('fill', fill); });
     path.addEventListener('click', () => selectMonth(i));
     svg.appendChild(path);
 
-    // Q label on first month of each quarter
     if (i % 3 === 0) {
       const [qx,qy] = polarXY(i*30+15, OR-12);
       const qLabel = document.createElementNS(SVG_NS, 'text');
@@ -339,38 +362,16 @@ function updateDetail() {
     chips.innerHTML = '<span class="no-events">Inga aktiviteter ännu. Lägg till via panelen.</span>';
     return;
   }
-  chips.innerHTML = evts.map((e, idx) => {
+  chips.innerHTML = evts.map(e => {
     const cc = CAT_COLORS[e.cat];
-    const realIdx = events[selectedMonth].findIndex((ev,i) => ev === events[selectedMonth].filter(x=>x===ev)[0] && JSON.stringify(ev)===JSON.stringify(e) && i >= 0);
-    const removeIdx = events[selectedMonth].indexOf(e);
     return `<div class="chip" style="background:${cc.light};color:${cc.bg};border-color:${cc.bg}33">
       <div class="chip-left">
         <span>${CATS[e.cat]}${e.note ? ' – '+e.note : ''}</span>
         ${e.date ? `<span class="chip-date">${formatDate(e.date)}</span>` : ''}
       </div>
-      <span class="chip-remove" onclick="removeEvent(${selectedMonth},${removeIdx})">×</span>
+      <span class="chip-remove" onclick="removeEvent(${e.id}, ${selectedMonth})">×</span>
     </div>`;
   }).join('');
-}
-
-function addEvent() {
-  const m = document.getElementById('sel-month').value;
-  const c = document.getElementById('sel-cat').value;
-  const date = document.getElementById('inp-date').value;
-  const note = document.getElementById('inp-note').value.trim();
-  if (m===''||c==='') { showToast('Välj månad och kategori'); return; }
-  events[parseInt(m)].push({cat:parseInt(c), date, note});
-  document.getElementById('inp-note').value='';
-  document.getElementById('inp-date').value='';
-  selectedMonth = parseInt(m);
-  saveToStorage(); buildWheel(); updateDetail(); updateAllList();
-  showToast('Aktivitet tillagd ✓');
-}
-
-function removeEvent(month, idx) {
-  events[month].splice(idx,1);
-  saveToStorage(); buildWheel(); updateDetail(); updateAllList();
-  showToast('Aktivitet borttagen');
 }
 
 function updateAllList() {
@@ -383,47 +384,22 @@ function updateAllList() {
     for (let m=q*3; m<q*3+3; m++) {
       if (events[m].length===0) continue;
       const sorted = sortEvents(events[m]);
-      qHtml += `<div class="month-header" style="color:${qc.bg};background:${qc.light}">${MONTHS[m]}</div>`;
+      qHtml += `<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:${qc.bg};background:${qc.light};padding:3px 8px;border-radius:5px;display:inline-block;margin:8px 0 4px">${MONTHS[m]}</div>`;
       sorted.forEach(e => {
-        const origIdx = events[m].indexOf(e);
         const cc = CAT_COLORS[e.cat];
         qHtml += `<div class="event-row" style="border-left-color:${cc.bg};background:${cc.light}">
           <div class="event-row-text">
             <span style="color:${cc.bg};font-weight:500">${CATS[e.cat]}${e.note?` <span style="font-weight:400;opacity:.7">– ${e.note}</span>`:''}</span>
             ${e.date?`<span class="event-row-date" style="color:${cc.bg}">${formatDate(e.date)}</span>`:''}
           </div>
-          <button class="btn-sm" onclick="removeEvent(${m},${origIdx})">×</button>
+          <button class="btn-sm" onclick="removeEvent(${e.id},${m})">×</button>
         </div>`;
         any = true;
       });
     }
-    if (qHtml) html += `<div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:${qc.bg};margin-bottom:6px;margin-top:${q>0?'12px':'0'}">${qs[q]}</div>${qHtml}`;
+    if (qHtml) html += `<div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:${qc.bg};margin-bottom:4px;margin-top:${q>0?'12px':'0'}">${qs[q]}</div>${qHtml}`;
   }
   el.innerHTML = any ? html : '<p class="no-events">Inga aktiviteter tillagda än.</p>';
-}
-
-function exportBackup() {
-  const blob = new Blob([JSON.stringify(events,null,2)],{type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = `arshjul_backup_${new Date().toISOString().slice(0,10)}.json`;
-  a.click();
-  showToast('Säkerhetskopia exporterad ✓');
-}
-
-function importBackup(input) {
-  const file = input.files[0]; if (!file) return;
-  const reader = new FileReader();
-  reader.onload = (e) => {
-    try {
-      const data = JSON.parse(e.target.result);
-      if (!Array.isArray(data)||data.length!==12) throw new Error();
-      events=data; selectedMonth=null;
-      saveToStorage(); buildWheel(); updateDetail(); updateAllList();
-      showToast('Säkerhetskopia importerad ✓');
-    } catch { showToast('Ogiltig fil'); }
-  };
-  reader.readAsText(file); input.value='';
 }
 
 function switchTab(tab, btn) {
@@ -439,7 +415,9 @@ function buildLegend() {
   ).join('');
 }
 
-loadFromStorage(); buildWheel(); buildLegend(); updateAllList();
+buildWheel();
+buildLegend();
+loadEvents();
 </script>
 
 
