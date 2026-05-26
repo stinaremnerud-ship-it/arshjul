@@ -5,45 +5,80 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Årshjul – Ledningsgrupp</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap');
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --bg: #F7F6F2; --surface: #FFFFFF; --border: #E2DFD8;
-    --text: #1A1917; --muted: #7A7870; --radius: 12px;
+    --bg: #F4F3EF;
+    --surface: #FFFFFF;
+    --surface2: #F4F3EF;
+    --border: #E0DDD6;
+    --text: #1A1917;
+    --muted: #8A8780;
+    --radius: 14px;
+    /* Kvartalsfärger */
+    --q1: #2878D6;   /* Q1 – blå */
+    --q1l: #DEEAF9;
+    --q2: #1A9E76;   /* Q2 – grön */
+    --q2l: #D6F2EA;
+    --q3: #D4820A;   /* Q3 – gyllengul */
+    --q3l: #FDF0D6;
+    --q4: #9B3DC8;   /* Q4 – lila */
+    --q4l: #F2E4FA;
   }
-  body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 2rem; }
-  h1 { font-family: 'DM Serif Display', serif; font-size: 28px; font-weight: 400; letter-spacing: -0.5px; margin-bottom: 4px; }
-  .subtitle { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
-  .save-indicator { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); margin-left: 12px; vertical-align: middle; }
-  .save-dot { width: 7px; height: 7px; border-radius: 50%; background: #0F6E56; }
-  .layout { display: grid; grid-template-columns: 1fr 340px; gap: 2rem; align-items: start; }
+  body { font-family: 'Space Grotesk', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding: 2rem; }
+
+  h1 { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 400; letter-spacing: -0.3px; margin-bottom: 4px; color: var(--text); }
+  .subtitle { font-size: 12px; color: var(--muted); margin-bottom: 2rem; letter-spacing: 0.02em; }
+
+  .save-indicator { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); margin-left: 12px; vertical-align: middle; font-family: 'Space Grotesk', sans-serif; }
+  .save-dot { width: 6px; height: 6px; border-radius: 50%; background: #2EC49A; }
+
+  .layout { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; align-items: start; }
+
   .wheel-panel { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; display: flex; flex-direction: column; align-items: center; }
-  svg#wheel { width: 100%; max-width: 480px; height: auto; }
-  .month-detail { margin-top: 1.5rem; width: 100%; max-width: 480px; min-height: 80px; }
-  .month-detail-title { font-size: 11px; font-weight: 500; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
+  svg#wheel { width: 100%; max-width: 460px; height: auto; }
+
+  .month-detail { margin-top: 1.5rem; width: 100%; max-width: 460px; min-height: 70px; }
+  .month-detail-title { font-size: 10px; font-weight: 600; color: var(--muted); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.1em; }
   .event-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-  .chip { font-size: 12px; padding: 4px 10px; border-radius: 999px; font-weight: 500; border: 1px solid transparent; }
-  .no-events { font-size: 13px; color: var(--muted); font-style: italic; }
+  .chip { font-size: 11px; padding: 4px 11px; border-radius: 999px; font-weight: 500; border: 1px solid transparent; }
+  .no-events { font-size: 12px; color: var(--muted); font-style: italic; }
+
   .side-panel { display: flex; flex-direction: column; gap: 1rem; }
   .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
-  .card-title { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 1rem; }
-  select, input[type="text"] { width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 13px; background: var(--bg); color: var(--text); margin-bottom: 8px; outline: none; transition: border-color .15s; }
-  select:focus, input:focus { border-color: #999; }
-  button { font-family: inherit; font-size: 13px; font-weight: 500; cursor: pointer; border-radius: 8px; transition: all .15s; border: 1px solid var(--border); }
-  .btn-primary { background: var(--text); color: #fff; border-color: var(--text); padding: 8px 16px; width: 100%; }
+  .card-title { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1rem; }
+
+  select, input[type="text"] {
+    width: 100%; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px;
+    font-family: inherit; font-size: 12px; background: var(--surface2); color: var(--text);
+    margin-bottom: 8px; outline: none; transition: border-color .15s;
+  }
+  select:focus, input:focus { border-color: #2878D6; }
+  select option { background: #fff; }
+
+  button { font-family: inherit; font-size: 12px; font-weight: 500; cursor: pointer; border-radius: 8px; transition: all .15s; border: 1px solid var(--border); }
+  .btn-primary { background: var(--text); color: var(--bg); border-color: var(--text); padding: 8px 16px; width: 100%; }
   .btn-primary:hover { background: #333; }
-  .btn-sm { background: transparent; color: var(--muted); padding: 3px 8px; font-size: 11px; }
-  .btn-sm:hover { background: var(--bg); color: var(--text); }
-  .event-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; border-radius: 6px; margin-bottom: 4px; border-left: 3px solid transparent; font-size: 13px; }
-  .legend { display: flex; flex-direction: column; gap: 6px; }
-  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text); }
-  .legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .btn-ghost { background: transparent; color: var(--muted); border-color: var(--border); padding: 8px 16px; width: 100%; }
+  .btn-ghost:hover { background: var(--surface2); color: var(--text); }
+  .btn-sm { background: transparent; color: var(--muted); padding: 3px 8px; font-size: 11px; border-color: transparent; }
+  .btn-sm:hover { background: var(--surface2); color: var(--text); }
+
+  .event-row { display: flex; align-items: center; justify-content: space-between; padding: 6px 8px; border-radius: 6px; margin-bottom: 4px; border-left: 3px solid transparent; font-size: 12px; }
+  .legend { display: flex; flex-direction: column; gap: 8px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text); }
+  .legend-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
   .tab-bar { display: flex; gap: 4px; margin-bottom: 1rem; }
-  .tab { flex: 1; text-align: center; padding: 6px; font-size: 12px; font-weight: 500; border-radius: 6px; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--muted); }
-  .tab.active { background: var(--text); color: #fff; border-color: var(--text); }
+  .tab { flex: 1; text-align: center; padding: 6px; font-size: 11px; font-weight: 500; border-radius: 6px; cursor: pointer; border: 1px solid var(--border); background: transparent; color: var(--muted); }
+  .tab.active { background: var(--text); color: var(--bg); border-color: var(--text); }
   .panel { display: none; } .panel.active { display: block; }
-  .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: #1A1917; color: #fff; padding: 10px 20px; border-radius: 999px; font-size: 13px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+
+  .q-badge { display: inline-block; font-size: 9px; font-weight: 600; padding: 2px 6px; border-radius: 4px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+  .toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--surface); color: var(--text); border: 1px solid var(--border); padding: 10px 20px; border-radius: 999px; font-size: 12px; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
   .toast.show { opacity: 1; }
+
   @media (max-width: 780px) { .layout { grid-template-columns: 1fr; } body { padding: 1rem; } }
 </style>
 </head>
@@ -74,12 +109,10 @@
         <div class="card-title">Ny aktivitet</div>
         <select id="sel-month">
           <option value="">Välj månad...</option>
-          <option value="0">Januari</option><option value="1">Februari</option>
-          <option value="2">Mars</option><option value="3">April</option>
-          <option value="4">Maj</option><option value="5">Juni</option>
-          <option value="6">Juli</option><option value="7">Augusti</option>
-          <option value="8">September</option><option value="9">Oktober</option>
-          <option value="10">November</option><option value="11">December</option>
+          <option value="0">Januari (Q1)</option><option value="1">Februari (Q1)</option><option value="2">Mars (Q1)</option>
+          <option value="3">April (Q2)</option><option value="4">Maj (Q2)</option><option value="5">Juni (Q2)</option>
+          <option value="6">Juli (Q3)</option><option value="7">Augusti (Q3)</option><option value="8">September (Q3)</option>
+          <option value="9">Oktober (Q4)</option><option value="10">November (Q4)</option><option value="11">December (Q4)</option>
         </select>
         <select id="sel-cat">
           <option value="">Välj kategori...</option>
@@ -106,18 +139,21 @@
     </div>
 
     <div class="card">
-      <div class="card-title">Kategorier</div>
-      <div class="legend" id="legend"></div>
+      <div class="card-title">Kvartal</div>
+      <div class="legend">
+        <div class="legend-item"><span class="legend-dot" style="background:#3D8EF0"></span>Q1 – Januari, Februari, Mars</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#2EC49A"></span>Q2 – April, Maj, Juni</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#F0A033"></span>Q3 – Juli, Augusti, September</div>
+        <div class="legend-item"><span class="legend-dot" style="background:#C45BE0"></span>Q4 – Oktober, November, December</div>
+      </div>
     </div>
 
     <div class="card">
-      <div class="card-title">⚠️ Byt dator? Säkerhetskopiera</div>
-      <p style="font-size:12px;color:var(--muted);margin-bottom:10px;line-height:1.5">Data sparas automatiskt i denna webbläsare. Om du byter dator, exportera och importera nedan.</p>
+      <div class="card-title">⚠ Byt dator? Säkerhetskopiera</div>
+      <p style="font-size:11px;color:var(--muted);margin-bottom:10px;line-height:1.6">Data sparas automatiskt i denna webbläsare. Byter du dator – exportera och importera nedan.</p>
       <button class="btn-primary" onclick="exportBackup()" style="margin-bottom:8px">Exportera säkerhetskopia</button>
-      <div style="display:flex;gap:6px">
-        <input type="file" id="import-file" accept=".json" style="display:none" onchange="importBackup(this)">
-        <button class="btn-primary" style="background:transparent;color:var(--text);border-color:var(--border)" onclick="document.getElementById('import-file').click()">Importera säkerhetskopia</button>
-      </div>
+      <input type="file" id="import-file" accept=".json" style="display:none" onchange="importBackup(this)">
+      <button class="btn-ghost" onclick="document.getElementById('import-file').click()">Importera säkerhetskopia</button>
     </div>
   </div>
 </div>
@@ -128,30 +164,37 @@
 const MONTHS = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 const MONTHS_SHORT = ['Jan','Feb','Mar','Apr','Maj','Jun','Jul','Aug','Sep','Okt','Nov','Dec'];
 const CATS = ['Ledningsgruppsmöte','Ledningens genomgång','SJG Sessions','Uppföljning VPL','Business review','Strategidagar','TÅG2027','ISO-revision','Budget','SWOT','Verksamhetsplan'];
-const COLORS = [
-  {bg:'#534AB7',light:'#EEEDFE'},{bg:'#0F6E56',light:'#E1F5EE'},{bg:'#993C1D',light:'#FAECE7'},
-  {bg:'#185FA5',light:'#E6F1FB'},{bg:'#7A4F00',light:'#FFF3D6'},{bg:'#5C1A5A',light:'#F9E8F8'},
-  {bg:'#0B5E6B',light:'#E0F5F8'},{bg:'#3B5E1A',light:'#EAF4DC'},{bg:'#8B1A1A',light:'#FCEAEA'},
-  {bg:'#2D4A6E',light:'#E8EEF7'},{bg:'#4A4A1A',light:'#F5F5DC'}
+
+// Kvartalsfärger per månad (0-11)
+const Q_COLORS = [
+  {bg:'#2878D6', light:'#DEEAF9', q:'Q1'},  // Jan
+  {bg:'#2878D6', light:'#DEEAF9', q:'Q1'},  // Feb
+  {bg:'#2878D6', light:'#DEEAF9', q:'Q1'},  // Mar
+  {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'},  // Apr
+  {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'},  // Maj
+  {bg:'#1A9E76', light:'#D6F2EA', q:'Q2'},  // Jun
+  {bg:'#D4820A', light:'#FDF0D6', q:'Q3'},  // Jul
+  {bg:'#D4820A', light:'#FDF0D6', q:'Q3'},  // Aug
+  {bg:'#D4820A', light:'#FDF0D6', q:'Q3'},  // Sep
+  {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'},  // Okt
+  {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'},  // Nov
+  {bg:'#9B3DC8', light:'#F2E4FA', q:'Q4'},  // Dec
+];
+
+const CAT_COLORS = [
+  '#3D8EF0','#2EC49A','#F0A033','#C45BE0','#F06B6B',
+  '#50D0E0','#E8D44D','#80E08A','#F09060','#A090F0','#60C0A0'
 ];
 
 const STORAGE_KEY = 'arshjul_ledning_v1';
-
 let events = Array.from({length:12}, () => []);
 let selectedMonth = null;
 
-// --- Storage ---
 function loadFromStorage() {
   try {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      if (Array.isArray(parsed) && parsed.length === 12) {
-        events = parsed;
-        showToast('Aktiviteter laddade ✓');
-      }
-    }
-  } catch(e) { console.warn('Kunde inte ladda sparad data', e); }
+    if (saved) { const p = JSON.parse(saved); if (Array.isArray(p) && p.length===12) { events = p; } }
+  } catch(e) {}
 }
 
 function saveToStorage() {
@@ -159,32 +202,29 @@ function saveToStorage() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(events));
     const el = document.getElementById('save-status');
     el.textContent = 'Sparar...';
-    setTimeout(() => { el.textContent = 'Sparad ✓'; }, 600);
-  } catch(e) { console.warn('Kunde inte spara', e); }
+    setTimeout(() => el.textContent = 'Sparad ✓', 600);
+  } catch(e) {}
 }
 
-// --- Toast ---
 function showToast(msg) {
   const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
+  t.textContent = msg; t.classList.add('show');
   setTimeout(() => t.classList.remove('show'), 2500);
 }
 
-// --- SVG Wheel ---
 const SVG_NS = 'http://www.w3.org/2000/svg';
-const CX = 250, CY = 250, OR = 230, IR = 80, MR = 158;
+const CX=250, CY=250, OR=230, IR=82, MR=160;
 
-function polarXY(angleDeg, r) {
-  const rad = (angleDeg - 90) * Math.PI / 180;
-  return [CX + r * Math.cos(rad), CY + r * Math.sin(rad)];
+function polarXY(deg, r) {
+  const rad = (deg-90)*Math.PI/180;
+  return [CX+r*Math.cos(rad), CY+r*Math.sin(rad)];
 }
 
 function slicePath(i) {
-  const deg = 360/12, gap = 1.2;
-  const s = i*deg + gap/2, e = (i+1)*deg - gap/2;
-  const [x1,y1] = polarXY(s, IR), [x2,y2] = polarXY(s, OR);
-  const [x3,y3] = polarXY(e, OR), [x4,y4] = polarXY(e, IR);
+  const deg=360/12, gap=1.4;
+  const s=i*deg+gap/2, e=(i+1)*deg-gap/2;
+  const [x1,y1]=polarXY(s,IR), [x2,y2]=polarXY(s,OR);
+  const [x3,y3]=polarXY(e,OR), [x4,y4]=polarXY(e,IR);
   return `M${x1},${y1} L${x2},${y2} A${OR},${OR} 0 0,1 ${x3},${y3} L${x4},${y4} A${IR},${IR} 0 0,0 ${x1},${y1} Z`;
 }
 
@@ -192,100 +232,133 @@ function buildWheel() {
   const svg = document.getElementById('wheel');
   svg.innerHTML = '';
 
-  for (let i = 0; i < 12; i++) {
-    const mid = i * 30 + 15;
-    const isSelected = selectedMonth === i;
-    const hasEvents = events[i].length > 0;
-    const fill = isSelected ? '#1A1917' : (hasEvents ? '#F0EEE8' : '#FAFAF7');
-    const textFill = isSelected ? '#fff' : '#1A1917';
+  // Subtle glow rings
+  const defs = document.createElementNS(SVG_NS, 'defs');
+  defs.innerHTML = `
+    <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#1E1E26"/>
+      <stop offset="100%" stop-color="#17171C"/>
+    </radialGradient>
+    <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  `;
+  svg.appendChild(defs);
+
+  for (let i=0; i<12; i++) {
+    const mid = i*30+15;
+    const isSelected = selectedMonth===i;
+    const hasEvents = events[i].length>0;
+    const qc = Q_COLORS[i];
+
+    const baseFill = qc.light;
+    const selectedFill = qc.bg;
+    const fill = isSelected ? selectedFill : baseFill;
+    const textFill = isSelected ? '#FFFFFF' : qc.bg;
 
     const path = document.createElementNS(SVG_NS, 'path');
     path.setAttribute('d', slicePath(i));
     path.setAttribute('fill', fill);
-    path.setAttribute('stroke', '#fff');
+    path.setAttribute('stroke', '#F4F3EF');
     path.setAttribute('stroke-width', '2');
     path.style.cursor = 'pointer';
-    path.style.transition = 'fill .15s';
-    path.addEventListener('mouseenter', () => { if (!isSelected) path.setAttribute('fill', '#E8E5DE'); });
+    path.style.transition = 'fill .2s';
+    path.addEventListener('mouseenter', () => { if (!isSelected) path.setAttribute('fill', qc.light); });
     path.addEventListener('mouseleave', () => { if (!isSelected) path.setAttribute('fill', fill); });
     path.addEventListener('click', () => selectMonth(i));
     svg.appendChild(path);
 
-    const [lx, ly] = polarXY(mid, MR);
+    // Quarter label on first month of each quarter
+    if (i % 3 === 0) {
+      const qMid = (i*30 + 30 + 15) - 30 + 15; // center of first month
+      const [qx, qy] = polarXY(i*30+15, OR-12);
+      const qLabel = document.createElementNS(SVG_NS, 'text');
+      qLabel.setAttribute('x', qx); qLabel.setAttribute('y', qy);
+      qLabel.setAttribute('text-anchor','middle'); qLabel.setAttribute('dominant-baseline','middle');
+      qLabel.setAttribute('font-size','8'); qLabel.setAttribute('font-weight','600');
+      qLabel.setAttribute('fill', qc.bg); qLabel.setAttribute('font-family','Space Grotesk,sans-serif');
+      qLabel.setAttribute('letter-spacing','0.06em');
+      qLabel.setAttribute('pointer-events','none');
+      qLabel.textContent = qc.q;
+      svg.appendChild(qLabel);
+    }
+
+    const [lx,ly] = polarXY(mid, MR);
     const label = document.createElementNS(SVG_NS, 'text');
-    label.setAttribute('x', lx); label.setAttribute('y', ly);
-    label.setAttribute('text-anchor', 'middle'); label.setAttribute('dominant-baseline', 'middle');
-    label.setAttribute('font-size', '13'); label.setAttribute('font-weight', isSelected ? '500' : '400');
-    label.setAttribute('fill', textFill); label.setAttribute('font-family', 'DM Sans, sans-serif');
-    label.style.cursor = 'pointer'; label.style.userSelect = 'none';
+    label.setAttribute('x',lx); label.setAttribute('y',ly);
+    label.setAttribute('text-anchor','middle'); label.setAttribute('dominant-baseline','middle');
+    label.setAttribute('font-size','12'); label.setAttribute('font-weight', isSelected?'600':'400');
+    label.setAttribute('fill', textFill); label.setAttribute('font-family','Space Grotesk,sans-serif');
+    label.style.cursor='pointer'; label.style.userSelect='none';
     label.textContent = MONTHS_SHORT[i];
     label.addEventListener('click', () => selectMonth(i));
     svg.appendChild(label);
 
     if (hasEvents) {
-      const cats = [...new Set(events[i].map(e => e.cat))];
-      const dotR = 5, spacing = 13;
-      const [dotCx, dotCy] = polarXY(mid, OR - 22);
-      const radMid = (mid - 90) * Math.PI / 180;
-      cats.slice(0, 4).forEach((cat, ci) => {
-        const offset = (ci - (Math.min(cats.length,4)-1)/2) * spacing;
-        const dot = document.createElementNS(SVG_NS, 'circle');
-        dot.setAttribute('cx', dotCx - Math.sin(radMid) * offset);
-        dot.setAttribute('cy', dotCy + Math.cos(radMid) * offset);
-        dot.setAttribute('r', dotR);
-        dot.setAttribute('fill', isSelected ? 'rgba(255,255,255,0.6)' : COLORS[cat].bg);
-        dot.setAttribute('pointer-events', 'none');
-        svg.appendChild(dot);
-      });
+      const count = events[i].length;
+      const [dotCx, dotCy] = polarXY(mid, OR-22);
+      const dot = document.createElementNS(SVG_NS, 'circle');
+      dot.setAttribute('cx', dotCx); dot.setAttribute('cy', dotCy); dot.setAttribute('r', 8);
+      dot.setAttribute('fill', isSelected ? 'rgba(255,255,255,0.5)' : qc.bg);
+      dot.setAttribute('pointer-events','none');
+      svg.appendChild(dot);
+      const num = document.createElementNS(SVG_NS, 'text');
+      num.setAttribute('x', dotCx); num.setAttribute('y', dotCy);
+      num.setAttribute('text-anchor','middle'); num.setAttribute('dominant-baseline','middle');
+      num.setAttribute('font-size','9'); num.setAttribute('font-weight','600');
+      num.setAttribute('fill', isSelected ? qc.bg : '#fff');
+      num.setAttribute('font-family','Space Grotesk,sans-serif');
+      num.setAttribute('pointer-events','none');
+      num.textContent = count;
+      svg.appendChild(num);
     }
   }
 
-  const bg = document.createElementNS(SVG_NS, 'circle');
-  bg.setAttribute('cx', CX); bg.setAttribute('cy', CY); bg.setAttribute('r', IR-2);
-  bg.setAttribute('fill', '#FAFAF7'); bg.setAttribute('stroke', '#E2DFD8'); bg.setAttribute('stroke-width', '1');
-  svg.appendChild(bg);
+  // Center
+  const centerBg = document.createElementNS(SVG_NS, 'circle');
+  centerBg.setAttribute('cx',CX); centerBg.setAttribute('cy',CY); centerBg.setAttribute('r',IR-2);
+  centerBg.setAttribute('fill','#FFFFFF'); centerBg.setAttribute('stroke','#E0DDD6'); centerBg.setAttribute('stroke-width','1');
+  svg.appendChild(centerBg);
 
   const yr = document.createElementNS(SVG_NS, 'text');
-  yr.setAttribute('x', CX); yr.setAttribute('y', CY - 6);
-  yr.setAttribute('text-anchor', 'middle'); yr.setAttribute('dominant-baseline', 'middle');
-  yr.setAttribute('font-size', '18'); yr.setAttribute('font-weight', '300');
-  yr.setAttribute('fill', '#1A1917'); yr.setAttribute('font-family', 'DM Serif Display, serif');
+  yr.setAttribute('x',CX); yr.setAttribute('y',CY-8);
+  yr.setAttribute('text-anchor','middle'); yr.setAttribute('dominant-baseline','middle');
+  yr.setAttribute('font-size','22'); yr.setAttribute('font-weight','300');
+  yr.setAttribute('fill','#1A1917'); yr.setAttribute('font-family','Playfair Display,serif');
   yr.textContent = new Date().getFullYear();
   svg.appendChild(yr);
 
   const yl = document.createElementNS(SVG_NS, 'text');
-  yl.setAttribute('x', CX); yl.setAttribute('y', CY + 12);
-  yl.setAttribute('text-anchor', 'middle'); yl.setAttribute('dominant-baseline', 'middle');
-  yl.setAttribute('font-size', '9'); yl.setAttribute('fill', '#7A7870');
-  yl.setAttribute('font-family', 'DM Sans, sans-serif'); yl.setAttribute('letter-spacing', '0.08em');
+  yl.setAttribute('x',CX); yl.setAttribute('y',CY+12);
+  yl.setAttribute('text-anchor','middle'); yl.setAttribute('dominant-baseline','middle');
+  yl.setAttribute('font-size','8'); yl.setAttribute('fill','#B0ADA8');
+  yl.setAttribute('font-family','Space Grotesk,sans-serif'); yl.setAttribute('letter-spacing','0.12em');
   yl.textContent = 'ÅRSHJUL';
   svg.appendChild(yl);
 }
 
 function selectMonth(i) {
-  selectedMonth = selectedMonth === i ? null : i;
-  buildWheel();
-  updateDetail();
-  if (selectedMonth !== null) document.getElementById('sel-month').value = selectedMonth;
+  selectedMonth = selectedMonth===i ? null : i;
+  buildWheel(); updateDetail();
+  if (selectedMonth!==null) document.getElementById('sel-month').value = selectedMonth;
 }
 
 function updateDetail() {
   const title = document.getElementById('detail-title');
   const chips = document.getElementById('detail-chips');
-  if (selectedMonth === null) {
+  if (selectedMonth===null) {
     title.textContent = 'Välj en månad';
     chips.innerHTML = '<span class="no-events">Klicka på en månad i hjulet för att se aktiviteter.</span>';
     return;
   }
-  title.textContent = MONTHS[selectedMonth];
+  const qc = Q_COLORS[selectedMonth];
+  title.textContent = `${MONTHS[selectedMonth]} · ${qc.q}`;
   const evts = events[selectedMonth];
-  if (evts.length === 0) {
+  if (evts.length===0) {
     chips.innerHTML = '<span class="no-events">Inga aktiviteter ännu. Lägg till via panelen.</span>';
     return;
   }
-  chips.innerHTML = evts.map((e, idx) => {
-    const c = COLORS[e.cat];
-    return `<span class="chip" style="background:${c.light};color:${c.bg};border-color:${c.light}">${CATS[e.cat]}${e.note ? ' – '+e.note : ''} <span style="cursor:pointer;margin-left:4px;opacity:.6" onclick="removeEvent(${selectedMonth},${idx})">×</span></span>`;
+  chips.innerHTML = evts.map((e,idx) => {
+    const cc = CAT_COLORS[e.cat];
+    return `<span class="chip" style="background:${qc.light};color:${qc.bg};border-color:${qc.bg}33">${CATS[e.cat]}${e.note?' – '+e.note:''} <span style="cursor:pointer;margin-left:4px;opacity:.6" onclick="removeEvent(${selectedMonth},${idx})">×</span></span>`;
   }).join('');
 }
 
@@ -293,43 +366,47 @@ function addEvent() {
   const m = document.getElementById('sel-month').value;
   const c = document.getElementById('sel-cat').value;
   const note = document.getElementById('inp-note').value.trim();
-  if (m === '' || c === '') { showToast('Välj månad och kategori'); return; }
-  events[parseInt(m)].push({cat: parseInt(c), note});
-  document.getElementById('inp-note').value = '';
+  if (m===''||c==='') { showToast('Välj månad och kategori'); return; }
+  events[parseInt(m)].push({cat:parseInt(c), note});
+  document.getElementById('inp-note').value='';
   selectedMonth = parseInt(m);
-  saveToStorage();
-  buildWheel(); updateDetail(); updateAllList();
+  saveToStorage(); buildWheel(); updateDetail(); updateAllList();
   showToast('Aktivitet tillagd ✓');
 }
 
 function removeEvent(month, idx) {
-  events[month].splice(idx, 1);
-  saveToStorage();
-  buildWheel(); updateDetail(); updateAllList();
+  events[month].splice(idx,1);
+  saveToStorage(); buildWheel(); updateDetail(); updateAllList();
   showToast('Aktivitet borttagen');
 }
 
 function updateAllList() {
   const el = document.getElementById('all-events-list');
-  let html = '', any = false;
-  for (let i = 0; i < 12; i++) {
-    if (events[i].length === 0) continue;
-    any = true;
-    html += `<div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:10px 0 4px">${MONTHS[i]}</div>`;
-    events[i].forEach((e, idx) => {
-      const c = COLORS[e.cat];
-      html += `<div class="event-row" style="border-left-color:${c.bg};background:${c.light}">
-        <span style="font-size:12px;color:${c.bg};font-weight:500">${CATS[e.cat]}${e.note ? '<span style="font-weight:400;opacity:.7"> – '+e.note+'</span>' : ''}</span>
-        <button class="btn-sm" onclick="removeEvent(${i},${idx})">Ta bort</button>
-      </div>`;
-    });
+  let html='', any=false;
+  const qs = ['Q1','Q2','Q3','Q4'];
+  for (let q=0; q<4; q++) {
+    const qc = Q_COLORS[q*3];
+    let qHtml = '';
+    for (let m=q*3; m<q*3+3; m++) {
+      if (events[m].length===0) continue;
+      qHtml += `<div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:${qc.bg};margin:8px 0 4px">${MONTHS[m]}</div>`;
+      events[m].forEach((e,idx) => {
+        qHtml += `<div class="event-row" style="border-left-color:${qc.bg};background:${qc.light}">
+          <span style="font-size:11px;color:${qc.bg};font-weight:500">${CATS[e.cat]}${e.note?'<span style="font-weight:400;opacity:.6"> – '+e.note+'</span>':''}</span>
+          <button class="btn-sm" onclick="removeEvent(${m},${idx})">×</button>
+        </div>`;
+        any = true;
+      });
+    }
+    if (qHtml) {
+      html += `<div style="font-size:10px;font-weight:700;letter-spacing:.1em;color:${qc.bg};margin-bottom:4px;padding:4px 8px;background:${qc.light};border-radius:6px">${qs[q]}</div>${qHtml}`;
+    }
   }
   el.innerHTML = any ? html : '<p class="no-events">Inga aktiviteter tillagda än.</p>';
 }
 
 function exportBackup() {
-  const data = JSON.stringify(events, null, 2);
-  const blob = new Blob([data], {type:'application/json'});
+  const blob = new Blob([JSON.stringify(events,null,2)],{type:'application/json'});
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = `arshjul_backup_${new Date().toISOString().slice(0,10)}.json`;
@@ -338,41 +415,28 @@ function exportBackup() {
 }
 
 function importBackup(input) {
-  const file = input.files[0];
-  if (!file) return;
+  const file = input.files[0]; if (!file) return;
   const reader = new FileReader();
   reader.onload = (e) => {
     try {
       const data = JSON.parse(e.target.result);
-      if (!Array.isArray(data) || data.length !== 12) throw new Error();
-      events = data;
-      selectedMonth = null;
-      saveToStorage();
-      buildWheel(); updateDetail(); updateAllList();
+      if (!Array.isArray(data)||data.length!==12) throw new Error();
+      events=data; selectedMonth=null;
+      saveToStorage(); buildWheel(); updateDetail(); updateAllList();
       showToast('Säkerhetskopia importerad ✓');
-    } catch { showToast('Ogiltig fil – kontrollera formatet'); }
+    } catch { showToast('Ogiltig fil'); }
   };
-  reader.readAsText(file);
-  input.value = '';
+  reader.readAsText(file); input.value='';
 }
 
 function switchTab(tab, btn) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('tab-'+tab).classList.add('active');
   btn.classList.add('active');
 }
 
-function buildLegend() {
-  document.getElementById('legend').innerHTML = CATS.map((cat, i) =>
-    `<div class="legend-item"><span class="legend-dot" style="background:${COLORS[i].bg}"></span>${cat}</div>`
-  ).join('');
-}
-
-loadFromStorage();
-buildWheel();
-buildLegend();
-updateAllList();
+loadFromStorage(); buildWheel(); updateAllList();
 </script>
 </body>
 </html>
